@@ -2,7 +2,7 @@ import Image from "next/image";
 import GradientBorder from "../GradientBorder";
 const PhoneIcon = () => {
   return (
-    <GradientBorder variant="icon" notRounded>
+    <GradientBorder variant="icon" notRounded  className="mt-[5px]">
       <Image
         src="/assets/telephone.png"
         alt="location"

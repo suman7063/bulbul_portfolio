@@ -5,7 +5,7 @@ interface HeadingTextProps extends React.HTMLAttributes<HTMLHeadingElement> {
   className?: string;
 }
 const HeadingText: React.FC<HeadingTextProps> = ({ text,variant='left',className, ...props }) => {
-  const baseClasses = 'font-poppins text-xl md:text-3xl font-semibold text-[#141414]'
+  const baseClasses = 'font-poppins text-xl md:text-3xl font-semibold bg-gradient-to-r from-[#de11d8] via-[#e34ddf] to-purple-300 inline-block text-transparent bg-clip-text text-nowrap'
   const variantClasses = {
     center: 'text-center',
     left: 'text-left',

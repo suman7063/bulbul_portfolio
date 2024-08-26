@@ -13,6 +13,7 @@ const config: Config = {
       },
       backgroundImage: {
         "linear-gradient": "linear-gradient(90deg, rgba(142,8,241,0.9962578781512605) 0%, rgba(229,138,241,1) 76%)",
+        "linear-gradient-hover": "linear-gradient(90deg, rgba(59,5,108,1) 0%, rgba(63,4,105,1) 43%, rgba(177,55,187,1) 87%)",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },

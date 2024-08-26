@@ -1,15 +1,21 @@
 "use client"
-import LargeText from "./LargeText";
+import LargeText from "./Text";
 const OtherPageLinks = ({ isFooter }: { isFooter?: boolean }) => {
-  const handleScroll = (id:string) => {
+  const handleScroll = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      const offset = 68;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth',
+      });
     }
   };
   return (
     <>
-      <li onClick={()=>{handleScroll('section1')}}>
+      <li onClick={()=>{handleScroll('section2')}}>
        
           <LargeText
             text="Projects"
@@ -17,7 +23,7 @@ const OtherPageLinks = ({ isFooter }: { isFooter?: boolean }) => {
           />
 
       </li>
-      <li onClick={()=>{handleScroll('section2')}}>
+      <li onClick={()=>{handleScroll('section3')}}>
         <LargeText
           text="Technologies"
           textColor="text-white"
