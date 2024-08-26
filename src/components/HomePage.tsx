@@ -112,7 +112,6 @@ const HomePage = () => {
               <GradientBorder variant="small">
                 <Image
                   src="/assets/suman_pic.png"
-                  priority={false}
                   alt="my_pic"
                   width={250}
                   height={250}
