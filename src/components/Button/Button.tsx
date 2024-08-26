@@ -7,8 +7,6 @@ interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disableBtn?: boolean;
   className?: string;
   isActive?: boolean;
-  height?:string;
-  width?:string
   scale?:"scale-105"|"scale-0"
 }
 
@@ -20,17 +18,15 @@ const Button: FC<CustomButtonProps> = ({
   className,
   disableBtn,
   isActive,
-  height='40px',
-  width='200px',
   ...props
 }) => {
-  const baseClassesCommon = `rounded-lg cursor-pointer whitespace-nowrap px-2  flex items-center duration-300 ease-in-out transform text-base ${disableBtn?"opacity-60 cursor-not-allowed":"cursor-pointer"}`
+  const baseClassesCommon = `rounded-lg cursor-pointer whitespace-nowrap px-2  flex items-center duration-300 ease-in-out transform ${disableBtn?"opacity-60 cursor-not-allowed":"cursor-pointer"}`
   const baseClassesVarient = {
     left:`${baseClassesCommon} justify-left`,
     right:`${baseClassesCommon} justify-right`,
     center:`${baseClassesCommon} justify-center`
   };
-  const variantClassesCommon =  `shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded focus:outline-none font-medium text-sm md:text-base`
+  const variantClassesCommon =  `shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded focus:outline-none font-medium`
   const variantClasses = {
     primary:
     `${variantClassesCommon} bg-linear-gradient text-white ${
@@ -48,12 +44,12 @@ const Button: FC<CustomButtonProps> = ({
     "scale-105": "hover:scale-105",
     "scale-0": "hover:scale-none",
   }
-  console.log("Button component rendered");
-  // Combine base and variant-specific classes
-  const buttonClasses = `${baseClassesVarient[baseClasses]} ${variantClasses[variant]} ${className} ${scaleClasses[scale]}  `;
+ // Responsive classes for height and width
+ const responsiveClasses = 'h-[28px] w-[100px] md:h-10 md:w-[200px] text-xs md:text-base';
+  const buttonClasses = `${baseClassesVarient[baseClasses]} ${variantClasses[variant]} ${className} ${scaleClasses[scale]}   ${responsiveClasses}`;
 
   return (
-    <button className={buttonClasses} {...props} style={{ height, width }} disabled={disableBtn} type="button">
+    <button className={buttonClasses} {...props} disabled={disableBtn} type="button">
       {children}
     </button>
   );

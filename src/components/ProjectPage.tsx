@@ -75,9 +75,9 @@ const Card: React.FC<{ item: CardItem }> = ({ item }) => {
         <Text text={item.description} sizeVarient="small" textColor="text-gray-400" />
 
         <div className="flex  justify-center mt-4">
-          <Button width="48%"><a href={item.previewLink} target="_blank" rel="noopener noreferrer">Live Preview</a></Button>
+          <Button><a href={item.previewLink} target="_blank" rel="noopener noreferrer">Live Preview</a></Button>
           {item.showGit && (
-            <Button variant="secondary" width="48%" className="ml-4">
+            <Button variant="secondary" className="ml-4">
               Git Link
             </Button>
           )}
