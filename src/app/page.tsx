@@ -2,7 +2,7 @@ import React from "react";
 import HomePage from "../components/HomePage";
 import ProjectPage from "../components/ProjectPage";
 import TechnologiesPage from "../components/TechnologiesPage";
-import AditionalSkillsPage from "../components/AditionalSkills";
+import AboutMe from "../components/AboutMe";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <HomePage />
       <ProjectPage />
       <TechnologiesPage/>
-      <AditionalSkillsPage/>
+      <AboutMe/>
     </div>
   );
 }

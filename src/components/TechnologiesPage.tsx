@@ -9,7 +9,7 @@ const data = [
   { width: 80, title: "React Js", label: "Advance" },
   { width: 80, title: "Next Js", label: "Advance" },
 ];
-const aditionalData = ["Git","Teamwork","Quick Learning",]
+const aditionalData = ["Git", "Teamwork", "Quick Learning"];
 const Card = ({
   width,
   title,
@@ -22,22 +22,14 @@ const Card = ({
   return (
     <div className="flex w-full items-start justify-between mt-6">
       <div className="w-[80%]">
-        <Text
-          text={title}
-          sizeVarient="large"
-          fontVarient="fontSemibold"
-        />
+        <Text text={title} sizeVarient="large"/>
         <div
-          className={`h-3 rounded-full bg-linear-gradient`}
+          className={`h-2 rounded-full bg-linear-gradient`}
           style={{ width: `${width}%` }}
         />
       </div>
       <div>
-        <Text
-          text={label}
-          sizeVarient="small"
-          fontVarient="fontSemibold"
-        />
+        <Text text={label} sizeVarient="small" />
       </div>
     </div>
   );
@@ -46,7 +38,7 @@ const TechnologiesPage = () => {
   return (
     <div
       id="section3"
-      className="relative bg-custom-purple px-4 md:px-8 xl:px-0 min-h-[100vh] flex items-center py-8 md:py-0"
+      className="relative bg-custom-purple px-4 md:px-8 xl:px-0 flex  py-16 "
     >
       <CommonLayout>
         <div className="relative">
@@ -54,8 +46,7 @@ const TechnologiesPage = () => {
             text="Technologies"
             sizeVarient="extraTwoLarge"
             fontVarient="fontSemibold"
-            className="mt-16"
-             textColor="text-white"
+            textColor="text-white"
           />
           {data.map((item, index) => {
             return (
@@ -71,7 +62,7 @@ const TechnologiesPage = () => {
             text="Aditional Technologies & Skills"
             sizeVarient="extraTwoLarge"
             fontVarient="fontSemibold"
-             textColor="text-white"
+            textColor="text-white"
             className="mt-16"
           />
           <div className="grid grid-cols-2 lg:grid-cols-3 mt-4 gap-8">
@@ -82,8 +73,6 @@ const TechnologiesPage = () => {
                   <Text
                     text={item}
                     sizeVarient="large"
-                    fontVarient="fontSemibold"
-                   
                     className="ml-1"
                   />
                 </div>
