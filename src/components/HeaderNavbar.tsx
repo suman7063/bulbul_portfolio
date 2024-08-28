@@ -32,7 +32,8 @@ const HeaderNavbar = ({ notHeaderShadow }: { notHeaderShadow?: boolean }) => {
           </div>
           <div className="w-[50%] md:w-[33%]">
             <div className="flex justify-end">
-              <Button>Download CV</Button>
+           
+              <Button> <a href="/assets/Suman_Singh_Resume_SDE_II.pdf" download="suman_singh_cv.pdf">Download CV</a></Button>
             </div>
           </div>
         </div>

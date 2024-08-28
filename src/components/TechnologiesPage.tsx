@@ -2,12 +2,14 @@ import CommonLayout from "./layout/CommonLayout";
 import Text from "./text/Text";
 
 const data = [
-  { width: 100, title: "HTML", label: "Advance" },
-  { width: 100, title: "CSS", label: "Advance" },
-  { width: 100, title: "Tailwind", label: "Advance" },
-  { width: 90, title: "Java Script", label: "Advance" },
   { width: 80, title: "React Js", label: "Advance" },
   { width: 80, title: "Next Js", label: "Advance" },
+  { width: 90, title: "Java Script", label: "Expert" },
+  { width: 100, title: "HTML", label: "Expert" },
+  { width: 100, title: "CSS", label: "Expert" },
+  { width: 100, title: "Tailwind", label: "Expert" },
+  { width: 100, title: "SASS", label: "Expert" },
+ 
 ];
 const aditionalData = ["Git", "Teamwork", "Quick Learning"];
 const Card = ({
