@@ -171,9 +171,11 @@ const Contact = () => {
                 data-netlify="true"
                 name="contact-form"
                 method="POST"
+                netlify-honeypot="bot-field"
               >
                 {/* Netlify form detection */}
                 <input type="hidden" name="form-name" value="contact-form" />
+                <input type="hidden" name="bot-field" />
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
                   <input
