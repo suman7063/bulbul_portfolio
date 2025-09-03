@@ -23,7 +23,7 @@ const Skills = () => {
     },
     {
       category: "Backend",
-      items: ["Node.js", "Express.js", "Supabase", "RESTful APIs"],
+      items: ["Express.js", "Supabase", "RESTful APIs"],
     },
     // { category: "Database", items: ["MongoDB", "PostgreSQL", "MySQL", "Redis"] },
     {
