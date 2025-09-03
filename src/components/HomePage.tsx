@@ -1,131 +1,152 @@
-import Image from "next/image";
-import EmailIcon from "../components/Icons/Email";
-import UserIcon from "../components/Icons/UserIcon";
-import GradientBorder from "../components/GradientBorder";
-import HeadingText from "../components/text/HeadingText";
-import Text from "./text/Text";
-import LocationIcon from "../components/Icons/LocationIcon";
-import PhoneIcon from "../components/Icons/PhoneIcon";
-import CommonLayout from "./layout/CommonLayout";
+"use client"
+import { useEffect, useState } from "react";
+import { X,Menu,ChevronDown } from "lucide-react";
 const HomePage = () => {
+  const [activeSection, setActiveSection] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    setActiveSection(sectionId);
+    setIsMenuOpen(false);
+  };
   return (
-    <div
-      id="section1"
-      className="bg-custom-purple relative  px-4 md:px-8 xl:px-0"
-    >
-      <CommonLayout>
-        <div className="md:flex md:items-center relative">
-          {/* Left Side */}
-          <div className="flex justify-center absolute top-16 right-2 md:hidden">
-            <div className="relative right-[-64px] top-16 z-10">
-              <GradientBorder variant="extraSmall" />
-            </div>
-            <div className="z-20">
-              <GradientBorder variant="small">
-                <Image
-                  src="/assets/suman_pic.png"
-                  alt="my_pic"
-                  width={250}
-                  height={250}
-                  className="rounded-full w-full h-full"
-                />
-              </GradientBorder>
-            </div>
-          </div>
-          <div className="w-full md:w-[700px] py-16 md:py-32 relative z-20">
-            <HeadingText text="Hello, I'm Suman Singh" />
-            <br />
-            <HeadingText
-              text="Sr. Frontend Developer"
-              className="text-white text-nowrap mt-2"
-            />
-            <div className="flex mt-8">
-              <LocationIcon />
-              <div className="ml-2 w-full">
-                <Text
-                  text="Address"
-                  textColor="text-purple-300"
-                  fontVarient="fontSemibold"
-                  sizeVarient="large"
-                />
-                <Text text="Delhi" className="w-[90%] " />
-              </div>
+    <>
+      {/* Navigation */}
+      <nav
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/90 backdrop-blur-md shadow-lg"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center md:py-4 py-2">
+            <div className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
+              Suman Singh
             </div>
 
-            <div className="flex mt-4">
-              <PhoneIcon />
-              <div className="ml-2 w-full">
-                <Text
-                  fontVarient="fontSemibold"
-                  text="Phone"
-                  textColor="text-purple-300"
-                  sizeVarient="large"
-                />
-                <a href="tel:7063143519">
-                  <Text className="w-[90%]" text="+91-7063143519" />
-                </a>
-              </div>
+            {/* Desktop Menu */}
+            <div className="hidden md:flex space-x-8">
+              {[
+                "home",
+                "about",
+                "experience",
+                "skills",
+                "projects",
+                "contact",
+              ].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className={`capitalize transition-colors duration-200 hover:text-orange-600 ${
+                    activeSection === item
+                      ? "text-orange-600 font-semibold"
+                      : "text-slate-700"
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
             </div>
 
-            <div className="flex mt-4">
-              <EmailIcon />
-              <div className="ml-2 w-full">
-                <Text
-                  fontVarient="fontSemibold"
-                  text="Email"
-                  textColor="text-purple-300"
-                  sizeVarient="large"
-                />
-                <a href="mailto:suman1994singh2010@gmail.com">
-                  <Text
-                    text="suman1994singh2010@gmail.com"
-                    className="w-[90%]"
-                    sizeVarient="large"
-                  />
-                </a>
-              </div>
-            </div>
-            <div className="flex mt-4">
-              <UserIcon />
-              <div className="ml-2 w-full">
-                <Text
-                  fontVarient="fontSemibold"
-                  text="About"
-                  textColor="text-purple-300"
-                  sizeVarient="large"
-                />
-
-                <Text
-                  className="w-[90%]"
-                  sizeVarient="large"
-                  text="Frontend Developer SDE II | React.js Expert | SaaS Specialist
-          🚀 Results-driven Frontend Developer with 5+ years of experience crafting exceptional web experiences."
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side */}
-          <div className="hidden md:block relative left-[-120px] xl:left-[-200px]">
-            <GradientBorder />
-            <div className="absolute right-[-100px] top-[-20px] z-20">
-              <GradientBorder variant="small">
-                <Image
-                  src="/assets/suman_pic.png"
-                  alt="my_pic"
-                  width={250}
-                  height={250}
-                  className="rounded-full w-[198px] h-[198px]"
-                />
-              </GradientBorder>
-            </div>
-            <div className="absolute right-[-120px] top-[150px] z-10">
-              <GradientBorder variant="extraSmall" backgroundColor="bg-linear-gradient"/>
-            </div>
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6 text-orange-600" />
+              ) : (
+                <Menu className="w-6 h-6 text-orange-600" />
+              )}
+            </button>
           </div>
         </div>
-      </CommonLayout>
-    </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t border-slate-200">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {[
+                "home",
+                "about",
+                "experience",
+                "skills",
+                "projects",
+                "contact",
+              ].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="block w-full text-left px-3 py-2 capitalize text-slate-700 hover:text-orange-600 hover:bg-slate-50 rounded-md"
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-amber-50"
+      >
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="mb-8  mt-16 animate-pulse">
+            <div className="w-24 h-24  md:w-48 md:h-48 mx-auto bg-gradient-to-r from-orange-500 to-amber-600 rounded-full flex items-center justify-center mb-6">
+              <span className="text-4xl font-bold text-white">BS</span>
+            </div>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold text-slate-800 mb-6">
+            Hi, I&apos;m{" "}
+            <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
+              Suman Singh
+            </span>
+          </h1>
+
+          <p className="text-xl md:text-2xl text-slate-600 mb-8 leading-relaxed">
+            Senior Software Engineer crafting innovative urban mobility
+            solutions
+            <br />
+            and scalable web applications with modern technologies
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="px-8 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors duration-200 font-semibold"
+            >
+              View My Work
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="px-8 py-3 border-2 border-orange-600 text-orange-600 rounded-lg hover:bg-orange-600 hover:text-white transition-colors duration-200 font-semibold"
+            >
+              Get In Touch
+            </button>
+          </div>
+
+          <button
+            onClick={() => scrollToSection("about")}
+            className="animate-bounce text-slate-400 hover:text-orange-600 transition-colors duration-200"
+          >
+            <ChevronDown className="w-8 h-8 mx-auto" />
+          </button>
+        </div>
+      </section>
+    </>
   );
 };
 export default HomePage;
