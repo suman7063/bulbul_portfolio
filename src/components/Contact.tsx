@@ -34,32 +34,32 @@ const Contact = () => {
     }));
   };
 
-  const downloadExcel = () => {
-    if (allSubmissions.length === 0) {
-      alert('No submissions to download yet!');
-      return;
-    }
+  // const downloadExcel = () => {
+  //   if (allSubmissions.length === 0) {
+  //     alert('No submissions to download yet!');
+  //     return;
+  //   }
 
-    // Create CSV content (Excel can open CSV files)
-    const headers = 'Name,Email,Message,Date\n';
-    const csvContent = allSubmissions.map(submission => 
-      `"${submission.name}","${submission.email}","${submission.message}","${submission.date}"`
-    ).join('\n');
+  //   // Create CSV content (Excel can open CSV files)
+  //   const headers = 'Name,Email,Message,Date\n';
+  //   const csvContent = allSubmissions.map(submission => 
+  //     `"${submission.name}","${submission.email}","${submission.message}","${submission.date}"`
+  //   ).join('\n');
     
-    const fullCsv = headers + csvContent;
-    const blob = new Blob([fullCsv], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
+  //   const fullCsv = headers + csvContent;
+  //   const blob = new Blob([fullCsv], { type: 'text/csv;charset=utf-8;' });
+  //   const link = document.createElement('a');
     
-    if (link.download !== undefined) {
-      const url = URL.createObjectURL(blob);
-      link.setAttribute('href', url);
-      link.setAttribute('download', `contact-form-submissions-${new Date().toISOString().split('T')[0]}.csv`);
-      link.style.visibility = 'hidden';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-  };
+  //   if (link.download !== undefined) {
+  //     const url = URL.createObjectURL(blob);
+  //     link.setAttribute('href', url);
+  //     link.setAttribute('download', `contact-form-submissions-${new Date().toISOString().split('T')[0]}.csv`);
+  //     link.style.visibility = 'hidden';
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //   }
+  // };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,14 +70,14 @@ const Contact = () => {
     trackContactForm('start');
 
     try {
-      // Netlify Forms - automatically detected when deployed
+      // Create form data for Netlify Forms
       const formDataToSend = new FormData();
       formDataToSend.append('form-name', 'contact-form');
       formDataToSend.append('name', formData.name);
       formDataToSend.append('email', formData.email);
       formDataToSend.append('message', formData.message);
 
-      // Submit to Netlify Forms
+      // Submit to Netlify Forms endpoint
       const response = await fetch('/', {
         method: 'POST',
         headers: {
@@ -249,7 +249,7 @@ const Contact = () => {
                 </button>
 
                 {/* Download Excel Button */}
-                <div className="border-t pt-4">
+                {/* <div className="border-t pt-4">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-sm text-slate-600">
                       Total Submissions: {allSubmissions.length}
@@ -270,7 +270,7 @@ const Contact = () => {
                       💡 CSV files open directly in Excel. All form submissions are automatically saved.
                     </div>
                   )}
-                </div>
+                </div> */}
               </form>
             </div>
           </div>
