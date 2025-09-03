@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forms Detection</title>
+</head>
+<body>
+  <!-- Contact Form for Netlify Detection -->
+  <form name="contact-form" method="POST" netlify>
+    <input type="hidden" name="form-name" value="contact-form" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <!-- Alternative form names for better detection -->
+  <form name="contact" method="POST" netlify>
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <!-- Simple form for detection -->
+  <form netlify>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>
