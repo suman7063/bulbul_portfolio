@@ -215,7 +215,7 @@ const Contact = () => {
 
                 {submitStatus === 'success' && (
                   <div className="p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                    ✅ Message sent successfully! You'll receive an email confirmation.
+                    ✅ Message sent successfully! You&apos;ll receive an email confirmation.
                   </div>
                 )}
 
