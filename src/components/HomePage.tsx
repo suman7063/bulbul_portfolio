@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import { X,Menu,ChevronDown } from "lucide-react";
+import Image from "next/image";
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -103,9 +104,16 @@ const HomePage = () => {
         className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-amber-50"
       >
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="mb-8  mt-16 animate-pulse">
-            <div className="w-24 h-24  md:w-48 md:h-48 mx-auto bg-gradient-to-r from-orange-500 to-amber-600 rounded-full flex items-center justify-center mb-6">
-              <span className="text-4xl font-bold text-white">BS</span>
+          <div className="mb-8 mt-16">
+            <div className="w-24 h-24 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden border-4 border-orange-500 shadow-xl mb-6">
+              <Image 
+                src="/assets/suman_pic.png" 
+                alt="Suman Singh - Frontend Developer"
+                width={192}
+                height={192}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
           </div>
 

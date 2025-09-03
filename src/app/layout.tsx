@@ -5,6 +5,13 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
   title: "Suman Singh - Frontend Developer Portfolio",
   description: "Portfolio of Suman Singh, a frontend developer with 5+ years of experience in React, Next.js, and modern web development. Explore projects, skills, and achievements.",
@@ -66,8 +73,7 @@ export const metadata: Metadata = {
     apple: "/favicon.ico",
   },
   
-  // Viewport and mobile
-  viewport: "width=device-width, initial-scale=1.0",
+  // Viewport and mobile - moved to separate export
   
   // Canonical URL
   alternates: {
