@@ -1,6 +1,7 @@
 "use client"
 import { Mail, MessageSquare, Phone,MapPin,Github,Linkedin, Download } from 'lucide-react'
 import React, { useState, useEffect } from 'react'
+import { trackContactForm, trackExternalLink } from '@/utils/analytics'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -64,6 +65,9 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    
+    // Track form submission start
+    trackContactForm('start');
 
     try {
       // Netlify Forms - automatically detected when deployed
@@ -98,6 +102,9 @@ const Contact = () => {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
         
+        // Track successful submission
+        trackContactForm('submit');
+        
         // Reset success message after 3 seconds
         setTimeout(() => setSubmitStatus('idle'), 3000);
       } else {
@@ -106,6 +113,10 @@ const Contact = () => {
     } catch (error) {
       console.error('Submission error:', error);
       setSubmitStatus('error');
+      
+      // Track form error
+      trackContactForm('error');
+      
       setTimeout(() => setSubmitStatus('idle'), 3000);
     } finally {
       setIsSubmitting(false);
@@ -151,12 +162,14 @@ const Contact = () => {
               <div className="flex gap-4 mt-8">
                 <a
                   href="https://github.com/suman7063"
+                  onClick={() => trackExternalLink('https://github.com/suman7063', 'social')}
                   className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-orange-600 hover:text-white transition-colors duration-200"
                 >
                   <Github className="w-5 h-5" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/suman-singh-65685b130/"
+                  onClick={() => trackExternalLink('https://www.linkedin.com/in/suman-singh-65685b130/', 'social')}
                   className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-orange-600 hover:text-white transition-colors duration-200"
                 >
                   <Linkedin className="w-5 h-5" />
