@@ -11,7 +11,7 @@ const Footer = () => {
         Building the future, one line of code at a time.
       </p>
       <p className="text-slate-500 text-sm">
-        © 2024 Suman Singh. All rights reserved.
+        © {new Date().getFullYear()} Suman Singh. All rights reserved.
       </p>
     </div>
   </footer>

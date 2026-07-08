@@ -65,7 +65,7 @@ const Experience = () => {
     },
     {
       period: "Nov 2018 - Nov 2020",
-      company: "Stillsweb",
+      company: "Pixean (OKSBIRD Online Services Pvt. Ltd.)",
       companyUrl: "https://stillsweb.com/",
       position: "Frontend Developer",
       description:
@@ -115,9 +115,14 @@ const Experience = () => {
                   <h3 className="text-xl font-semibold text-slate-800">
                     {exp.position}
                   </h3>
-                  < a href={exp.companyUrl} className="text-lg font-medium text-orange-600">
+                  <a
+                    href={exp.companyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-medium text-orange-600"
+                  >
                     {exp.company}
-                  </ a>
+                  </a>
                 </div>
                 <span className="text-sm text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
                   {exp.period}

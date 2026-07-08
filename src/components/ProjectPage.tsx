@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Code } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 const projects = [
   {
@@ -36,15 +36,15 @@ const projects = [
       "Figma",
       "Cursor",
     ],
-    liveUrl: "#",
+    liveUrl: "https://conscent.ai/",
     githubUrl: "#",
     image: "/assets/project/conscent.png",
   },
   {
-    title: "Stillsweb – Image Management & Cloud Storage Platform",
+    title: "Pixean – Image Management & Cloud Storage Platform",
     description: `Designed for artists, photographers, and businesses managing millions of images.
                   Tech Stack Tags: Image Management Cloud Storage Object Detection Cross-Platform`,
-    technologies: ["HTML", "CSS", "JavaScript", "React",, "Material UI", "Bootstrap"],
+    technologies: ["HTML", "CSS", "JavaScript", "React", "Material UI", "Bootstrap"],
     liveUrl: "https://stillsweb.com/",
     githubUrl: "#",
     image: "/assets/project/stillWeb.png",
@@ -116,13 +116,17 @@ const ProjectPage = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <a
-                    href={project.liveUrl}
-                    className="flex items-center text-orange-600 hover:text-orange-700 font-medium text-sm"
-                  >
-                    <ExternalLink className="w-4 h-4 mr-1" />
-                    Live Demo
-                  </a>
+                  {project.liveUrl !== "#" && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-orange-600 hover:text-orange-700 font-medium text-sm"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-1" />
+                      Live Demo
+                    </a>
+                  )}
                   {/* <a
                       href={project.githubUrl}
                       className="flex items-center text-slate-600 hover:text-slate-700 font-medium text-sm"

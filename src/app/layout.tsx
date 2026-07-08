@@ -8,22 +8,21 @@ const inter = Inter({ subsets: ["latin"] });
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export const metadata: Metadata = {
-  title: "Suman Singh - Frontend Developer Portfolio",
-  description: "Portfolio of Suman Singh, a frontend developer with 5+ years of experience in React, Next.js, and modern web development. Explore projects, skills, and achievements.",
-  keywords: ["Suman Singh", "frontend developer", "React", "Next.js", "JavaScript", "TypeScript", "portfolio", "web developer", "UI developer"],
+  metadataBase: new URL("https://bulbul-suman-portfolio.netlify.app"),
+  title: "Suman Singh - Senior Software Engineer | React & Next.js Developer",
+  description: "Portfolio of Suman Singh, a senior software engineer with 6+ years of experience in React, Next.js, and modern web development. Explore projects, skills, and achievements.",
+  keywords: ["Suman Singh", "frontend developer", "senior software engineer", "React developer", "Next.js developer", "JavaScript", "TypeScript", "portfolio", "web developer", "UI developer", "Bangalore"],
   authors: [{ name: "Suman Singh" }],
   creator: "Suman Singh",
   publisher: "Suman Singh",
   
   // Open Graph / Facebook
   openGraph: {
-    title: "Suman Singh - Frontend Developer Portfolio",
-    description: "Explore the projects and skills of Suman Singh, frontend developer with 5+ years of experience in React, Next.js, and modern web apps.",
+    title: "Suman Singh - Senior Software Engineer | React & Next.js Developer",
+    description: "Explore the projects and skills of Suman Singh, senior software engineer with 6+ years of experience in React, Next.js, and modern web apps.",
     url: "https://bulbul-suman-portfolio.netlify.app/",
     siteName: "Suman Singh Portfolio",
     images: [
@@ -41,11 +40,9 @@ export const metadata: Metadata = {
   // Twitter
   twitter: {
     card: "summary_large_image",
-    title: "Suman Singh - Frontend Developer Portfolio",
-    description: "Explore the projects and skills of Suman Singh, frontend developer with 5+ years of experience.",
+    title: "Suman Singh - Senior Software Engineer | React & Next.js Developer",
+    description: "Explore the projects and skills of Suman Singh, senior software engineer with 6+ years of experience.",
     images: ["https://bulbul-suman-portfolio.netlify.app/preview.png"],
-    creator: "@suman_singh",
-    site: "@suman_singh",
   },
   
   // Additional SEO
@@ -61,10 +58,10 @@ export const metadata: Metadata = {
     },
   },
   
-  // Verification
-  verification: {
-    google: "your-google-verification-code", // Add your Google Search Console verification code
-  },
+  // Verification — uncomment and add your real Google Search Console code:
+  // verification: {
+  //   google: "your-google-verification-code",
+  // },
   
   // Icons
   icons: {
@@ -97,8 +94,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Suman Singh",
-              "jobTitle": "Frontend Developer",
-              "description": "Frontend developer with 5+ years of experience in React, Next.js, and modern web development",
+              "jobTitle": "Senior Software Engineer",
+              "description": "Senior software engineer with 6+ years of experience in React, Next.js, and modern web development",
               "url": "https://bulbul-suman-portfolio.netlify.app/",
               "sameAs": [
                 "https://github.com/suman7063",
@@ -110,8 +107,10 @@ export default function RootLayout({
               ],
               "worksFor": {
                 "@type": "Organization",
-                "name": "Freelance"
+                "name": "RideNGo",
+                "url": "https://www.ridengo.in/"
               },
+              "email": "mailto:suman@ridengo.in",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Bangalore",
@@ -121,7 +120,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <GoogleAnalytics />
         {children}
       </body>

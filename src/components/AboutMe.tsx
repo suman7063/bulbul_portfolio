@@ -1,59 +1,8 @@
 import { Code, User } from "lucide-react";
-type CardItem = {
-  title: string;
-  date: string;
-  college: string;
-};
 
-const data = [
-  {
-    title: "Wheelsfly",
-    date: "Jun 2024- Present",
-    college: "",
-  },
-  {
-    title: "Conscent.ai",
-    date: "Nov 2020- Jun 2024",
-    college: "",
-  },
-  {
-    title: "Stillsweb",
-    date: "Nov 2018- Nov 2020",
-    college: "",
-  },
-  {
-    title: "MCA",
-    date: "2015 -  2018",
-    college: "NIT Durgapur",
-  },
-  {
-    title: "BCA",
-    date: "2011 - 2014",
-    college: "Lucknow Univesity",
-  },
-];
-const Card: React.FC<{ item: CardItem }> = ({ item }) => {
-  return (
-    <div className="flex  w-full flex-nowrap">
-      <div className="w-6 pt-[14px] ml-[-2px]  ">
-        <div className="bg-linear-gradient w-4 h-4 rounded-full " />
-      </div>
-
-      <div className="min-w-[180px] w-full  ml-[-8px]">
-        <p className="text-nowrap text-sm text-black opacity-50 pl-2 font-medium">
-          {item.date}
-        </p>
-        <div className="bg-custom-purple w-full h-1" />
-        <p className="text-nowrap text-sm text-black pl-2 mt-4">{`${
-          item.title
-        } ${item.college ? `(${item.college})` : ``}`}</p>
-      </div>
-    </div>
-  );
-};
 const AboutMe = () => {
   return (
-    <section id="about" className="py-10 md:py-20 bg-white">
+    <section id="about" className="pt-6 pb-10 md:pt-10 md:pb-20 bg-white">
     <div className="max-w-6xl mx-auto px-4">
       <div className="flex items-center mb-8">
         <User className="w-8 h-8 text-orange-600 mr-4" />

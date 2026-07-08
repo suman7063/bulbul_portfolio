@@ -1,5 +1,5 @@
 "use client"
-import { Mail, MessageSquare, Phone,MapPin,Github,Linkedin, Download } from 'lucide-react'
+import { Mail, MessageSquare, Phone, MapPin, Github, Linkedin } from 'lucide-react'
 import React, { useState, useEffect } from 'react'
 import { trackContactForm, trackExternalLink } from '@/utils/analytics'
 
@@ -149,7 +149,7 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-orange-600 mr-3" />
-                  <a href="tel:+1234567890" className="text-slate-600 hover:text-orange-600">
+                  <a href="tel:+917063143519" className="text-slate-600 hover:text-orange-600">
                     +91 7063143519
                   </a>
                 </div>
@@ -162,6 +162,9 @@ const Contact = () => {
               <div className="flex gap-4 mt-8">
                 <a
                   href="https://github.com/suman7063"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub profile"
                   onClick={() => trackExternalLink('https://github.com/suman7063', 'social')}
                   className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-orange-600 hover:text-white transition-colors duration-200"
                 >
@@ -169,6 +172,9 @@ const Contact = () => {
                 </a>
                 <a
                   href="https://www.linkedin.com/in/suman-singh-65685b130/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile"
                   onClick={() => trackExternalLink('https://www.linkedin.com/in/suman-singh-65685b130/', 'social')}
                   className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-orange-600 hover:text-white transition-colors duration-200"
                 >
@@ -190,8 +196,9 @@ const Contact = () => {
                 <input type="hidden" name="form-name" value="contact-form" />
                 <input type="hidden" name="bot-field" />
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
+                  <label htmlFor="contact-name" className="block text-sm font-medium text-slate-700 mb-2">Name</label>
                   <input
+                    id="contact-name"
                     type="text"
                     name="name"
                     value={formData.name}
@@ -203,8 +210,9 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                  <label htmlFor="contact-email" className="block text-sm font-medium text-slate-700 mb-2">Email</label>
                   <input
+                    id="contact-email"
                     type="email"
                     name="email"
                     value={formData.email}
@@ -216,8 +224,9 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-slate-700 mb-2">Message</label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}

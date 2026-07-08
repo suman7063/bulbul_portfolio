@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import { X,Menu,ChevronDown } from "lucide-react";
+import { X, Menu, ChevronDown, Download } from "lucide-react";
 import Image from "next/image";
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -10,6 +10,7 @@ const HomePage = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -36,7 +37,7 @@ const HomePage = () => {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex items-center space-x-8">
               {[
                 "home",
                 "about",
@@ -45,9 +46,13 @@ const HomePage = () => {
                 "projects",
                 "contact",
               ].map((item) => (
-                <button
+                <a
                   key={item}
-                  onClick={() => scrollToSection(item)}
+                  href={`#${item}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item);
+                  }}
                   className={`capitalize transition-colors duration-200 hover:text-orange-600 ${
                     activeSection === item
                       ? "text-orange-600 font-semibold"
@@ -55,14 +60,24 @@ const HomePage = () => {
                   }`}
                 >
                   {item}
-                </button>
+                </a>
               ))}
+              <a
+                href="/SumanSingh_Resume.pdf"
+                download
+                className="flex items-center gap-2 px-4 py-1.5 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors duration-200 font-medium text-sm"
+              >
+                <Download className="w-4 h-4" />
+                Resume
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               className="md:hidden p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6 text-orange-600" />
@@ -85,14 +100,26 @@ const HomePage = () => {
                 "projects",
                 "contact",
               ].map((item) => (
-                <button
+                <a
                   key={item}
-                  onClick={() => scrollToSection(item)}
+                  href={`#${item}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item);
+                  }}
                   className="block w-full text-left px-3 py-2 capitalize text-slate-700 hover:text-orange-600 hover:bg-slate-50 rounded-md"
                 >
                   {item}
-                </button>
+                </a>
               ))}
+              <a
+                href="/SumanSingh_Resume.pdf"
+                download
+                className="flex items-center gap-2 px-3 py-2 text-orange-600 font-medium hover:bg-slate-50 rounded-md"
+              >
+                <Download className="w-4 h-4" />
+                Download Resume
+              </a>
             </div>
           </div>
         )}
@@ -101,11 +128,11 @@ const HomePage = () => {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-amber-50"
+        className="flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-amber-50 pt-20 md:pt-24 pb-2 md:pb-4"
       >
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="mb-8 mt-16">
-            <div className="w-24 h-24 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden border-4 border-orange-500 shadow-xl mb-6">
+          <div>
+            <div className="w-24 h-24 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden border-4 border-orange-500 shadow-xl mb-6">
               <Image 
                 src="/assets/suman_pic.png" 
                 alt="Suman Singh - Frontend Developer"
@@ -117,21 +144,21 @@ const HomePage = () => {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold text-slate-800 mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold text-slate-800 mb-4">
             Hi, I&apos;m{" "}
             <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
               Suman Singh
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-600 mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-600 mb-6 leading-relaxed">
             Senior Software Engineer crafting innovative urban mobility
             solutions
             <br />
             and scalable web applications with modern technologies
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
             <button
               onClick={() => scrollToSection("projects")}
               className="px-8 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors duration-200 font-semibold"
@@ -149,6 +176,7 @@ const HomePage = () => {
           <button
             onClick={() => scrollToSection("about")}
             className="animate-bounce text-slate-400 hover:text-orange-600 transition-colors duration-200"
+            aria-label="Scroll to About section"
           >
             <ChevronDown className="w-8 h-8 mx-auto" />
           </button>
