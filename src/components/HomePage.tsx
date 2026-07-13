@@ -247,10 +247,10 @@ const HomePage = () => {
                 </div>
 
                 {/* Floating stat chips */}
-                <div className="absolute -left-6 top-6 md:-left-10 md:top-10 px-3 py-1.5 rounded-xl bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 shadow-lg backdrop-blur-sm text-sm font-semibold text-slate-700 dark:text-slate-200 animate-float">
+                <div className="absolute -left-3 top-2 md:-left-10 md:top-10 px-2 py-0.5 md:px-3 md:py-1.5 rounded-lg md:rounded-xl bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 shadow-lg backdrop-blur-sm text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-200 animate-float">
                   6+ <span className="font-normal text-slate-500 dark:text-slate-400">yrs exp</span>
                 </div>
-                <div className="absolute -right-4 bottom-8 md:-right-8 md:bottom-12 px-3 py-1.5 rounded-xl bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 shadow-lg backdrop-blur-sm text-sm font-semibold text-slate-700 dark:text-slate-200 animate-float animation-delay-3000">
+                <div className="absolute -right-3 bottom-2 md:-right-8 md:bottom-12 px-2 py-0.5 md:px-3 md:py-1.5 rounded-lg md:rounded-xl bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 shadow-lg backdrop-blur-sm text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-200 animate-float animation-delay-3000">
                   15+ <span className="font-normal text-slate-500 dark:text-slate-400">projects</span>
                 </div>
               </div>

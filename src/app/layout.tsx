@@ -86,10 +86,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Apply saved theme before first paint to avoid a flash of the wrong theme */}
+        {/* Apply saved theme before first paint; default is dark unless the user chose light */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
+            __html: `(function(){try{if(localStorage.getItem('theme')!=='light'){document.documentElement.classList.add('dark')}}catch(e){document.documentElement.classList.add('dark')}})()`,
           }}
         />
         {/* Structured Data for SEO */}
@@ -116,7 +116,7 @@ export default function RootLayout({
                 "name": "RideNGo",
                 "url": "https://www.ridengo.in/"
               },
-              "email": "mailto:suman@ridengo.in",
+              "email": "mailto:sumansinghfly@gmail.com",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Bangalore",

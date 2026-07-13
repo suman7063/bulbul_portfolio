@@ -148,15 +148,21 @@ const Contact = () => {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 text-orange-600 dark:text-orange-400 mr-3" />
-                  <a href="mailto:suman@ridengo.in" className="text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400">
-                  suman@ridengo.in
+                  <a href="mailto:sumansinghfly@gmail.com" className="text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400">
+                  sumansinghfly@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-orange-600 dark:text-orange-400 mr-3" />
-                  <a href="tel:+917063143519" className="text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400">
-                    +91 7063143519
-                  </a>
+                  <span className="text-slate-600 dark:text-slate-400">
+                    <a href="tel:+916362130218" className="hover:text-orange-600 dark:hover:text-orange-400">
+                      +91 6362130218
+                    </a>
+                    {" / "}
+                    <a href="tel:+917063143519" className="hover:text-orange-600 dark:hover:text-orange-400">
+                      +91 7063143519
+                    </a>
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-orange-600 dark:text-orange-400 mr-3" />
