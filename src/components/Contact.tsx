@@ -78,8 +78,9 @@ const Contact = () => {
       formDataToSend.append('email', formData.email);
       formDataToSend.append('message', formData.message);
 
-      // Submit to Netlify Forms endpoint
-      const response = await fetch('/', {
+      // Submit to the static form page — on Next.js sites Netlify Forms only
+      // intercepts POSTs to static paths, not routes served by the Next server
+      const response = await fetch('/contact-form.html', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
