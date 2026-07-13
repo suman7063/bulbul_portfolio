@@ -22,7 +22,7 @@ const projects = [
     ],
     liveUrl: "https://www.ridengo.in/",
     githubUrl: "#",
-    image: "/assets/project/rideNgo.png",
+    image: "/assets/project/rideNgo.jpg",
   },
   {
     title: "Bicres – QR Ordering Platform for Restaurants",
@@ -37,7 +37,7 @@ const projects = [
     ],
     liveUrl: "https://bicres.com/",
     githubUrl: "#",
-    image: "/assets/project/bicres.png",
+    image: "/assets/project/bicres.jpg",
   },
   {
     title: "Soulversity – Mental Wellness Platform",
@@ -53,7 +53,7 @@ const projects = [
     ],
     liveUrl: "https://live.soulversity.com/",
     githubUrl: "#",
-    image: "/assets/project/soulversity.png",
+    image: "/assets/project/soulversity.jpg",
   },
   {
     title: "Pixean – Image Management & Cloud Storage Platform",
@@ -63,7 +63,7 @@ const projects = [
     technologies: ["HTML", "CSS", "JavaScript", "React", "Material UI", "Bootstrap"],
     liveUrl: "https://stillsweb.com/",
     githubUrl: "#",
-    image: "/assets/project/stillWeb.png",
+    image: "/assets/project/stillWeb.jpg",
   },
   {
     title: "QR-Menu-Items – Dynamic QR Code Menu System",
@@ -73,7 +73,7 @@ const projects = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "lucide-react", "Netlify", "GitHub", "Figma", "Cursor"],
     liveUrl: "https://qr-menu-items.netlify.app/",
     githubUrl: "#",
-    image: "/assets/project/qr-menu-items.png",
+    image: "/assets/project/qr-menu-items.jpg",
   },
   {
     title: "Game Theory – Tech-Driven Sports Ecosystem",
@@ -83,7 +83,7 @@ const projects = [
     technologies: ["Framer", "React"],
     liveUrl: "https://www.gametheory.in/",
     githubUrl: "#",
-    image: "/assets/project/gametheory.png",
+    image: "/assets/project/gametheory.jpg",
   },
 ];
 const ProjectPage = () => {
@@ -119,8 +119,7 @@ const ProjectPage = () => {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    priority={index < 3}
-                    quality={85}
+                    loading="lazy"
                   />
 
                   {/* Hover: fully opaque panel — image text can never bleed through */}
