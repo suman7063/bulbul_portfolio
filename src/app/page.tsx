@@ -8,13 +8,13 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer"; 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <main>
         <HomePage />
+        <ProjectPage />
         <AboutMe/>
         <Experience />
         <Skills />
-        <ProjectPage />
         <Contact/>
       </main>
       <Footer/>

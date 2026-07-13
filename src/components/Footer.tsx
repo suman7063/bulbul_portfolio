@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-800 text-white py-12">
+    <footer className="bg-slate-800 dark:bg-slate-900 dark:border-t dark:border-slate-800 text-white py-12 transition-colors duration-300">
     <div className="max-w-6xl mx-auto px-4 text-center">
       <div className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-4">
         Suman Singh

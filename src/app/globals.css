@@ -10,28 +10,109 @@ section[id] {
   scroll-margin-top: 72px;
 }
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+  color: #0f172a;
+  background: #f8fafc;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.dark body {
+  color: #f1f5f9;
+  background: #020617;
+}
+
+::selection {
+  background: #f97316;
+  color: #fff;
+}
+
+/* Floating gradient blobs (hero background) */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 25px) scale(0.95);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.animate-blob {
+  animation: blob 14s ease-in-out infinite;
+}
+
+.animation-delay-3000 {
+  animation-delay: 3s;
+}
+
+/* Hero entrance: staggered fade-up on load */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.7s ease-out forwards;
+}
+
+.fade-delay-1 { animation-delay: 0.1s; }
+.fade-delay-2 { animation-delay: 0.25s; }
+.fade-delay-3 { animation-delay: 0.4s; }
+.fade-delay-4 { animation-delay: 0.55s; }
+.fade-delay-5 { animation-delay: 0.7s; }
+
+/* Animated gradient headline */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease-in-out infinite;
+}
+
+/* Gentle float for the avatar */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Typewriter caret */
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-caret {
+  animation: caret-blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-blob,
+  .animate-float,
+  .animate-gradient {
+    animation: none;
+  }
+  .animate-fade-up {
+    animation-duration: 0.01s;
+  }
 }
 
 @layer utilities {

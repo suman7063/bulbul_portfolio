@@ -2,6 +2,7 @@
 import { Mail, MessageSquare, Phone, MapPin, Github, Linkedin } from 'lucide-react'
 import React, { useState, useEffect } from 'react'
 import { trackContactForm, trackExternalLink } from '@/utils/analytics'
+import Reveal from './Reveal'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -124,17 +125,21 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-10 md:py-20 bg-white">
+    <section id="contact" className="py-10 md:py-20 bg-white dark:bg-slate-950 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex items-center mb-8">
-            <MessageSquare className="w-8 h-8 text-orange-600 mr-4" />
-            <h2 className="text-2xl md:text-4xl font-bold text-slate-800">Get In Touch</h2>
-          </div>
-          
+          <Reveal>
+            <div className="flex items-center gap-4 mb-10">
+              <span className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/30">
+                <MessageSquare className="w-6 h-6" />
+              </span>
+              <h2 className="text-2xl md:text-4xl font-bold text-slate-800 dark:text-slate-100">Get In Touch</h2>
+            </div>
+          </Reveal>
+
           <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-semibold text-slate-800 mb-6">Let&apos;s work together</h3>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">
+            <Reveal>
+              <h3 className="text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-6">Let&apos;s work together</h3>
+              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
                 I&apos;m always interested in new opportunities and exciting projects. 
                 Whether you&apos;re a startup looking to build your MVP or an established 
                 company seeking to improve your digital presence, I&apos;d love to hear from you.
@@ -142,20 +147,20 @@ const Contact = () => {
               
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <Mail className="w-5 h-5 text-orange-600 mr-3" />
-                  <a href="mailto:suman@ridengo.in" className="text-slate-600 hover:text-orange-600">
+                  <Mail className="w-5 h-5 text-orange-600 dark:text-orange-400 mr-3" />
+                  <a href="mailto:suman@ridengo.in" className="text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400">
                   suman@ridengo.in
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <Phone className="w-5 h-5 text-orange-600 mr-3" />
-                  <a href="tel:+917063143519" className="text-slate-600 hover:text-orange-600">
+                  <Phone className="w-5 h-5 text-orange-600 dark:text-orange-400 mr-3" />
+                  <a href="tel:+917063143519" className="text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400">
                     +91 7063143519
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-orange-600 mr-3" />
-                  <span className="text-slate-600">Bangalore, India</span>
+                  <MapPin className="w-5 h-5 text-orange-600 dark:text-orange-400 mr-3" />
+                  <span className="text-slate-600 dark:text-slate-400">Bangalore, India</span>
                 </div>
               </div>
               
@@ -166,7 +171,7 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   aria-label="GitHub profile"
                   onClick={() => trackExternalLink('https://github.com/suman7063', 'social')}
-                  className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-orange-600 hover:text-white transition-colors duration-200"
+                  className="w-12 h-12 bg-gray-700 dark:bg-slate-800 text-white rounded-full flex items-center justify-center hover:bg-orange-600 dark:hover:bg-orange-500 hover:text-white transition-colors duration-200"
                 >
                   <Github className="w-5 h-5" />
                 </a>
@@ -176,14 +181,14 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   aria-label="LinkedIn profile"
                   onClick={() => trackExternalLink('https://www.linkedin.com/in/suman-singh-65685b130/', 'social')}
-                  className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-orange-600 hover:text-white transition-colors duration-200"
+                  className="w-12 h-12 bg-gray-700 dark:bg-slate-800 text-white rounded-full flex items-center justify-center hover:bg-orange-600 dark:hover:bg-orange-500 hover:text-white transition-colors duration-200"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
               </div>
-            </div>
-            
-            <div className="bg-slate-50 md:p-8 p-4 rounded-xl">
+            </Reveal>
+
+            <Reveal delay={150} className="bg-slate-50 dark:bg-slate-900 md:p-8 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
               <form 
                 onSubmit={handleSubmit} 
                 className="space-y-6"
@@ -196,7 +201,7 @@ const Contact = () => {
                 <input type="hidden" name="form-name" value="contact-form" />
                 <input type="hidden" name="bot-field" />
                 <div>
-                  <label htmlFor="contact-name" className="block text-sm font-medium text-slate-700 mb-2">Name</label>
+                  <label htmlFor="contact-name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Name</label>
                   <input
                     id="contact-name"
                     type="text"
@@ -204,13 +209,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors text-gray-700"
+                    className="w-full px-4 py-3 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors text-gray-700 dark:text-slate-200 dark:placeholder-slate-500"
                     placeholder="Your name"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="contact-email" className="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                  <label htmlFor="contact-email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email</label>
                   <input
                     id="contact-email"
                     type="email"
@@ -218,13 +223,13 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors text-gray-700"
+                    className="w-full px-4 py-3 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors text-gray-700 dark:text-slate-200 dark:placeholder-slate-500"
                     placeholder="your@email.com"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="contact-message" className="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
                   <textarea
                     id="contact-message"
                     name="message"
@@ -232,7 +237,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors resize-none text-gray-700"
+                    className="w-full px-4 py-3 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors resize-none text-gray-700 dark:text-slate-200 dark:placeholder-slate-500"
                     placeholder="Tell me about your project..."
                   ></textarea>
                 </div>
@@ -252,7 +257,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors duration-200 font-semibold disabled:bg-orange-400 disabled:cursor-not-allowed"
+                  className="w-full px-8 py-3 bg-gradient-to-r from-orange-600 to-amber-600 text-white rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/35 hover:-translate-y-0.5 transition-all duration-300 font-semibold disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
@@ -281,7 +286,7 @@ const Contact = () => {
                   )}
                 </div> */}
               </form>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
