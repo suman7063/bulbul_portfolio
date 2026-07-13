@@ -16,7 +16,7 @@ const ThemeToggle = () => {
     setIsDark(next);
     document.documentElement.classList.toggle("dark", next);
     try {
-      localStorage.setItem("theme", next ? "dark" : "light");
+      localStorage.setItem("portfolio-theme", next ? "dark" : "light");
     } catch {}
   };
 

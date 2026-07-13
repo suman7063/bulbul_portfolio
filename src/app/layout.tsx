@@ -89,7 +89,7 @@ export default function RootLayout({
         {/* Apply saved theme before first paint; default is dark unless the user chose light */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{if(localStorage.getItem('theme')!=='light'){document.documentElement.classList.add('dark')}}catch(e){document.documentElement.classList.add('dark')}})()`,
+            __html: `(function(){try{if(localStorage.getItem('portfolio-theme')!=='light'){document.documentElement.classList.add('dark')}}catch(e){document.documentElement.classList.add('dark')}})()`,
           }}
         />
         {/* Structured Data for SEO */}
